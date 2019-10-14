@@ -1,0 +1,14 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8081/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+spring:
+  application:
+    name: rural-shop-gateway
+server:
+  port: 8084
+zuul:
+  routes:
+    rural-shop-wms: /wms/**

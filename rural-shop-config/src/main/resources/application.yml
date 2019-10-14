@@ -1,0 +1,22 @@
+server:
+  port: 8005
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:properties/ # 搜索src/main/resource 下的properties文件夹下的文件
+  application:
+    name: rural-shop-config
+  profiles:
+    active: native  # 配置使用本地储存

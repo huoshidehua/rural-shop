@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: rural-shop-wms
+  cloud:
+    config:
+      discovery:
+        enabled: true # 通过服务发现的方式去找配置中心
+        service-id: rural-shop-config # 配置中心 在 eureka 中配置的名字
+      profile: base
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8081/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+server:
+  port: 8082
+feign:
+  httpclient:
+    enabled: true
